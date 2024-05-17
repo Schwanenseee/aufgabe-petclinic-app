@@ -1,0 +1,67 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: petclinic-mysql
+  labels:
+    app: petclinic-mysql
+    app.kubernetes.io/part-of: petclinic-daniel
+spec:
+  ports:
+    - name: petclinic-mysql
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: petclinic-mysql
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: petclinic-app
+  labels:
+    app: petclinic-app
+    app.kubernetes.io/part-of: petclinic-daniel
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: petclinic-app
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: petclinic-phpmyadmin
+  labels:
+    app: petclinic-phpmyadmin
+    app.kubernetes.io/part-of: petclinic-daniel
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: petclinic-phpmyadmin
