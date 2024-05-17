@@ -169,7 +169,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: petclinic-mysql
-                  key: database-user
+                  key: database-password
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
