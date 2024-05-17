@@ -114,7 +114,7 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: mysql
             - name: MYSQL_URL
-              value: 'jdbc:mysql://petclinic-mysql:3306/petclinic'
+              value: 'jdbc:mysql://petclinic-mysql:3306/ia5readsyxkvnoew'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
